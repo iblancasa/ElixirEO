@@ -15,6 +15,14 @@ defmodule Maxones do
     f(iterations-1, length)
   end
 
+
+  def call_f(iterations, length, top_length) when length == top_length do
+      time = :timer.tc(Maxones,:f, [iterations,length])
+      IO.puts("Elixir-List "<>to_string(length)<>" "<>to_string(elem(time,0)/1000000))
+      length = length*2
+  end
+
+
   def call_f(iterations, length, top_length) when length < top_length do
     time = :timer.tc(Maxones,:f, [iterations,length])
     IO.puts("Elixir-List "<>to_string(length)<>" "<>to_string(elem(time,0)/1000000))
